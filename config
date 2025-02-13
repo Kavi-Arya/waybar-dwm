@@ -3,6 +3,7 @@
   "layer": "top",
   "position": "top",
   "height": 26,
+  "reload_style_on_change": true,
 
   // Minimal modules: left = workspaces, center = active window title, right = clock.
   "modules-left": ["hyprland/workspaces","custom/icon" ,"hyprland/window"],
@@ -10,7 +11,6 @@
   "modules-right": [ 
   "custom/showmode",
   "cpu",
-  "custom/update-count", 
   "custom/nettrf",
   "clock"
   ],
