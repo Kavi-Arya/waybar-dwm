@@ -1,0 +1,125 @@
+{
+  // Set the bar to always be on top and at the top of the screen.
+  "layer": "top",
+  "position": "top",
+  "height": 26,
+
+  // Minimal modules: left = workspaces, center = active window title, right = clock.
+  "modules-left": ["hyprland/workspaces","custom/icon" ,"hyprland/window"],
+  "modules-center": [],
+  "modules-right": [ 
+  "custom/showmode",
+  "cpu",
+  "custom/update-count", 
+  "custom/nettrf",
+  "clock"
+  ],
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1",
+    "all-outputs": false,
+    "active-only": false,
+    "show-special": false,
+    "format-icons": {
+      "11": "1",
+      "12": "2",
+      "13": "3",
+      "14": "4",
+      "15": "5",
+      "21": "6",
+      "22": "7",
+      "23": "8",
+      "24": "9",
+      "25": "10",
+      "31": "1",
+      "32": "2",
+      "33": "3",
+    },
+    "persistent-workspaces": {
+      "HDMI-A-1": [ 1,2,3,4,5,6,7,8,9 ],
+    }
+  },
+
+  "hyprland/window": {
+    "format": "{title}",
+    "max-length": 50,
+    "separate-outputs": true
+  },
+
+  "custom/cpu": {
+    "format": "<span ><span color=\"#d8a657\"> </span>{}</span>",
+    "interval": 2,
+    "escape": true,
+    "exec": "~/src/cpubarsRust/cpubars/src/rustnative",
+  },
+
+  "custom/nettrf": {
+    "format": "<span ><span color=\"#d8a657\"></span>{}</span>",
+    "interval": 2,
+    "escape": true,
+    "exec": "~/src/nettrf/target/debug/nettrf",
+  },
+  "custom/cpubars": {
+    "format": " <span rise=\"-14pt\"><span color=\"#d8a657\"></span>{}</span>",
+    "interval": 2,
+    "escape": true,
+    "exec": "~/.config/waybar/scripts/cpubars",
+  },
+
+  "custom/showmode": {
+    "interval": 1,
+    "escape": true,
+    "exec": "~/.config/waybar/scripts/showMode.sh",
+  },
+
+  "custom/update-count": {
+    "format": "</span> {}</span>",
+    "interval": 60,
+    "escape": true,
+    "exec": "~/.config/waybar/scripts/arch_updates",
+    "on-click": "~/.config/waybar/scripts/notify_arch_updates"
+  },
+
+  "custom/icon": {
+    "format": " <span ><span color=\"#d8a657\"></span>{}</span> ",
+    "exec": "~/.config/waybar/scripts/state",
+    "interval": "once",
+    "signal": 8
+  },
+
+  "cpu": {
+    "interval": 2,
+    "format": "CPU {usage}%"
+  },
+
+  "clock": {
+    "format": "{:%a %b %d %I:%M %p}",
+    "timezones": [
+      "Asia/Kolkata",
+    ],
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 3,
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#a6e3a1'><b>{}</b></span>",
+        "days": "<span color='#cdd6f4'>{}</span>",
+        "weeks": "<span color='#74c7ec'><b>W{}</b></span>",
+        "weekdays": "<span color='#f9e2af'><b>{}</b></span>",
+        "today": "<span background='#f38ba8' color='#1e1e2e'><b>{}</b></span>"
+      }
+    },
+    "actions": {
+      "on-click": "tz_up",
+      "on-click-right": "tz_down",
+      "on-click-forward": "shift_up",
+      "on-click-backward": "shift_down",
+      "on-click-middle": "mode",
+    }
+  },
+}
+
