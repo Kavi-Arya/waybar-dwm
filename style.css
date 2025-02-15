@@ -1,16 +1,18 @@
 @import "colors.css";
+/*@import "mode.css";*/
 #backlight, #battery, #cpu, #disk, #idle_inhibitor, #keyboard-state,
 #pulseaudio, #clock, #tags, #language, #memory, #network, #sndio,
 #mode, #window, #workspaces, #temperature, #taskbar, #workspaces,
 #custom-treefetch-downloads, #custom-update-count, #custom-axyl-downloads,
-#custom-gpu-temp, #custom-artix, #custom-cpubars, #custom-nettrf, #custom-showmode{
+#custom-gpu-temp, #custom-artix, #custom-cpubars, #custom-nettrf, #custom-showmode,#custom-nowplaying{
   background: @background;
   color: @foreground;
+  font-size: 17px;
 }
 
 * {
   font-family: "Zed Mono Nerd Font";
-  font-size: 14px;
+  font-size: 17px;
 }
 
 
@@ -33,34 +35,45 @@ window#waybar {
 }
 
 #workspaces {
+  font-size: 20px;
 }
 
 
 #workspaces button {
-  font-size: 12px;
-  padding: 0px 11px 0px 11px; 
+  font-size: 13px;
+  padding: 0px 8px 0px 8px; 
   min-width: 1px;
+}
+
+#workspaces button.empty {
   color: @foreground;
 }
 
+#workspaces button.visible {
+  font-size: 20px;
+  padding: 0px 8px 0px 8px; 
+  min-width: 1px;
+  color: #ea6962;
+}
 
 #workspaces button.focused { 
-  font-size: 12px;
-  padding: 0px 11px 0px 11px; 
+  font-size: 20px;
+  padding: 0px 8px 0px 8px; 
+  padding: 0px 8px 0px 8px; 
   background-color: @color1; 
   color: @foreground;    
 }
 
 #workspaces button.active {
-  font-size: 12px;
-  padding: 0px 11px 0px 11px; 
+  font-size: 20px;
+  padding: 0px 8px 0px 8px; 
   background-color: @color1; 
-  color: @background;    
+  color: @forground;    
 }
 
 
 #window {
-  font-size: 12px;
+  font-size: 20px;
   color: @color0;    
   background-color: @color1; 
   padding: 0px 10px 0px 10px;
@@ -68,24 +81,24 @@ window#waybar {
 
 
 window#waybar.empty #window {
-  font-size: 12px;
+  font-size: 13px;
   background-color: transparent;
   color: transparent;
 }
 
 
 window#waybar.empty {
-  font-size: 12px;
+  font-size: 13px;
   background-color: @color0; 
 }
 
 
 #cpu,#clock,#custom-nettrf,#custom-showmode {
-  margin: 0px 15px 0px 15px;
+  margin: 0px 8px 0px 8px;
   background-color: @color0; 
   color: @foreground;    
-  padding: 0px 2px 0px 2px;
 }
+
     
 
 /*#clock {*/

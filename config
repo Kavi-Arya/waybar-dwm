@@ -1,17 +1,14 @@
 {
   // Set the bar to always be on top and at the top of the screen.
-  "layer": "top",
+  "layer": "bottom",
   "position": "top",
-  "height": 26,
+  "height": 27,
   "reload_style_on_change": true,
-
-  // Minimal modules: left = workspaces, center = active window title, right = clock.
   "modules-left": ["hyprland/workspaces","custom/icon" ,"hyprland/window"],
   "modules-center": [],
   "modules-right": [ 
-  "custom/showmode",
+  "hyprland/submap",
   "cpu",
-  "custom/nettrf",
   "clock"
   ],
 
@@ -45,31 +42,46 @@
 
   "hyprland/window": {
     "format": "{title}",
-    "max-length": 50,
+    "max-length": 80,
     "separate-outputs": true
   },
 
+  "hyprland/submap": {
+    "format": " {}",
+    "max-length": 8,
+    "tooltip": false
+  },
+
+  "custom/nowplaying": {
+    "format": " {}",
+    "interval": 1,
+    "escape": true,
+    "exec": "~/.config/waybar/scripts/nowPlaying.sh",
+  },
+
   "custom/cpu": {
-    "format": "<span ><span color=\"#d8a657\"> </span>{}</span>",
+    "format": "{}",
     "interval": 2,
     "escape": true,
     "exec": "~/src/cpubarsRust/cpubars/src/rustnative",
   },
 
   "custom/nettrf": {
-    "format": "<span ><span color=\"#d8a657\"></span>{}</span>",
+    "format": "{}",
     "interval": 2,
     "escape": true,
     "exec": "~/src/nettrf/target/debug/nettrf",
+    "on-click": "exec firefox https://fast.com"
   },
   "custom/cpubars": {
-    "format": " <span rise=\"-14pt\"><span color=\"#d8a657\"></span>{}</span>",
+    "format": "{}",
     "interval": 2,
     "escape": true,
     "exec": "~/.config/waybar/scripts/cpubars",
   },
 
   "custom/showmode": {
+    "format": "{}",
     "interval": 1,
     "escape": true,
     "exec": "~/.config/waybar/scripts/showMode.sh",
@@ -92,11 +104,11 @@
 
   "cpu": {
     "interval": 2,
-    "format": "CPU {usage}%"
+    "format": "<span ><span color=\"#ea6962\"></span>{usage}%</span>",
   },
 
   "clock": {
-    "format": "{:%a %b %d %I:%M %p}",
+    "format": "<span ><span color=\"#ea6962\"></span>{:%a %b %d %I:%M %p}</span>",
     "timezones": [
       "Asia/Kolkata",
     ],
@@ -122,4 +134,3 @@
     }
   },
 }
-
