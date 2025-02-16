@@ -3,7 +3,7 @@
 #backlight, #battery, #cpu, #disk, #idle_inhibitor, #keyboard-state,
 #pulseaudio, #clock, #tags, #language, #memory, #network, #sndio,
 #mode, #window, #workspaces, #temperature, #taskbar, #workspaces,
-#custom-treefetch-downloads, #custom-update-count, #custom-axyl-downloads,
+#custom-treefetch-downloads, #custom-archupdates , #custom-axyl-downloads,
 #custom-gpu-temp, #custom-artix, #custom-cpubars, #custom-nettrf, #custom-showmode,#custom-nowplaying{
   background: @background;
   color: @foreground;
@@ -72,8 +72,8 @@ window#waybar {
 }
 
 
-#window {
-  font-size: 20px;
+#custom-nowplaying,#window {
+  font-size: 18px;
   color: @color0;    
   background-color: @color1; 
   padding: 0px 10px 0px 10px;
@@ -93,14 +93,13 @@ window#waybar.empty {
 }
 
 
-#cpu,#clock,#custom-nettrf,#custom-showmode {
+#custom-archupdates,#cpu,#clock,#custom-nettrf,#custom-showmode {
   margin: 0px 8px 0px 8px;
   background-color: @color0; 
   color: @foreground;    
 }
 
     
-
 /*#clock {*/
 /*	margin: 0px 15px 0px 15px;*/
 /*}*/

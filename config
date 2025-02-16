@@ -4,14 +4,34 @@
   "position": "top",
   "height": 27,
   "reload_style_on_change": true,
-  "modules-left": ["hyprland/workspaces","custom/icon" ,"hyprland/window"],
-  "modules-center": [],
-  "modules-right": [ 
-  "hyprland/submap",
-  "cpu",
-  "clock"
+  "modules-left": [
+    "hyprland/workspaces",
+    "custom/icon",
+    "custom/nowplaying"
   ],
-
+  "modules-center": [],
+  "modules-right": [
+    "hyprland/submap",
+    "custom/archupdates",
+    "custom/nettrf",
+    "cpu",
+    "pulseaudio",
+    "clock"
+  ],
+  "pulseaudio": {
+    "scroll-step": 2, // %, can be a float
+    "format": "{icon}{volume}%",
+    "format-muted": "<span color=\"#b4befe\">Muted: </span>...",
+    "format-icons": {
+      "default": [
+        "<span> Vol: </span>"
+      ],
+      "headphone": [
+        "<span color=\"#89b4fa\">󰋋 </span>"
+      ]
+    },
+    "on-click": "pamixer -t"
+  },
   "hyprland/workspaces": {
     "format": "{icon}",
     "on-click": "activate",
@@ -33,10 +53,20 @@
       "25": "10",
       "31": "1",
       "32": "2",
-      "33": "3",
+      "33": "3"
     },
     "persistent-workspaces": {
-      "HDMI-A-1": [ 1,2,3,4,5,6,7,8,9 ],
+      "HDMI-A-1": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
     }
   },
 
@@ -45,27 +75,24 @@
     "max-length": 80,
     "separate-outputs": true
   },
-
   "hyprland/submap": {
     "format": " {}",
     "max-length": 8,
     "tooltip": false
   },
-
   "custom/nowplaying": {
     "format": " {}",
     "interval": 1,
     "escape": true,
     "exec": "~/.config/waybar/scripts/nowPlaying.sh",
+    "on-click": "~/.config/waybar/scripts/playtoggle.sh"
   },
-
   "custom/cpu": {
-    "format": "{}",
+    "format": "CPU: {}",
     "interval": 2,
     "escape": true,
     "exec": "~/src/cpubarsRust/cpubars/src/rustnative",
   },
-
   "custom/nettrf": {
     "format": "{}",
     "interval": 2,
@@ -79,34 +106,29 @@
     "escape": true,
     "exec": "~/.config/waybar/scripts/cpubars",
   },
-
   "custom/showmode": {
     "format": "{}",
     "interval": 1,
     "escape": true,
     "exec": "~/.config/waybar/scripts/showMode.sh",
   },
-
-  "custom/update-count": {
-    "format": "</span> {}</span>",
-    "interval": 60,
+  "custom/archupdates": {
+    "format": "</span>{}</span>",
+    "interval": 20,
     "escape": true,
     "exec": "~/.config/waybar/scripts/arch_updates",
     "on-click": "~/.config/waybar/scripts/notify_arch_updates"
   },
-
   "custom/icon": {
     "format": " <span ><span color=\"#d8a657\"></span>{}</span> ",
     "exec": "~/.config/waybar/scripts/state",
     "interval": "once",
     "signal": 8
   },
-
   "cpu": {
     "interval": 2,
-    "format": "<span ><span color=\"#ea6962\"></span>{usage}%</span>",
+    "format": "<span ><span color=\"#ea6962\"></span>CPU: {usage}%</span>",
   },
-
   "clock": {
     "format": "<span ><span color=\"#ea6962\"></span>{:%a %b %d %I:%M %p}</span>",
     "timezones": [
