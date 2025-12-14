@@ -36,6 +36,7 @@ window#waybar {
 
 #workspaces {
   font-size: 20px;
+  border-radius: 0px; /* <--- Add this line */
 }
 
 
@@ -43,6 +44,7 @@ window#waybar {
   font-size: 13px;
   padding: 0px 8px 0px 8px; 
   min-width: 1px;
+  border-radius: 0px; /* <--- Add this line */
 }
 
 #workspaces button.empty {
